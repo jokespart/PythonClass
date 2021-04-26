@@ -21,9 +21,12 @@ class Category:
     def category_balance(self):
         return "Your category balance is now: {}".format(self.amount)
 
-    def transfer(self, amount, category):
+    def transfer(self, amount, cat):
         #transfer between two instantiated class
-        pass
+        cat.amount += amount
+        return "${} is transferred fron {} to {}".format(amount,self.category,cat.category)
+        
+        #print("The current balance in {} is now {}".format(self.category, self.amount))
 
 
 food_category = Category("Food", 1000)
@@ -35,4 +38,6 @@ entertainment_category = Category("Entertainment", 200)
 print(food_category.withdraw(200))
 print(food_category.check_balance(500))
 print(food_category.category_balance())
-print(food_category.transfer(600,food_category))
+print(food_category.transfer(600,utilities_category))
+
+print(food_category.transfer(50, car_category))
